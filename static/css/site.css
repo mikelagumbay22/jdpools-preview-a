@@ -286,3 +286,18 @@ p{margin:0 0 1em;max-width:62ch}
 /* licence / insurance strip (only rendered when data/credentials.json is filled) */
 .creds{border-top:1px solid rgba(0,0,0,.08);padding:28px 0;background:#fff}.creds__in{display:flex;flex-wrap:wrap;gap:24px 56px;align-items:center;justify-content:center}.creds__group{display:flex;align-items:center;gap:18px;flex-wrap:wrap}.creds__label{margin:0;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;opacity:.7}.creds__logos{list-style:none;margin:0;padding:0;display:flex;gap:20px;align-items:center;flex-wrap:wrap}.creds__logos img{height:48px;width:auto;display:block}.creds__name{font-weight:600}
 .svc__summary{margin:.2em 0 .9em;font-weight:500;color:var(--ink,#16293a)}
+
+/* Discreet credit on demo-still (concept) photos only. */
+.photo[data-src="concept"]{position:relative}
+.photo[data-src="concept"]::after{
+  content:"Concept image";
+  position:absolute;right:8px;bottom:8px;z-index:2;
+  font:500 9px/1 var(--sans,sans-serif);
+  letter-spacing:.06em;text-transform:uppercase;
+  color:#fff;background:rgba(20,24,32,.48);
+  padding:4px 7px;border-radius:2px;pointer-events:none;
+}
+@media (max-width:699px){
+  .svc-item .photo[data-src="concept"]::after,.photo--sm[data-src="concept"]::after{font-size:8px;padding:3px 5px}
+}
+.row__img .photo[data-src="concept"]::after{content:none}
